@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OneSpark feature.
+ */
+
+include_once 'onespark.features.inc';

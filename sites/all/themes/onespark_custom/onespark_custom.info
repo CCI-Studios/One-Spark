@@ -1,0 +1,19 @@
+name = One Spark
+description = One Spark Custom
+core = 7.x
+
+scripts[] = js/carousel.js
+scripts[] = js/jquery.color-2.1.2.min.js
+scripts[] = js/jquery.placeholder-enhanced.min.js
+
+stylesheets[all][] = stylesheets/screen.css
+
+regions[navigation] = Navigation
+regions[header] = Header
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = Sidebar
+regions[widgets] = Widgets
+regions[widgets2] = Widgets2
+regions[footer] = Footer
+
