@@ -3,6 +3,7 @@ description = One Spark Custom
 core = 7.x
 
 scripts[] = js/carousel.js
+scripts[] = js/mobile-menu.js
 scripts[] = js/jquery.color-2.1.2.min.js
 scripts[] = js/jquery.placeholder-enhanced.min.js
 
