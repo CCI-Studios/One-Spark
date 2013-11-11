@@ -34,9 +34,11 @@ function setActive(index)
 	var old_row = jQuery(".view-carousel .views-row.active");
 	var new_row = jQuery(".view-carousel .views-row-"+(index+1));
 	if (!new_row.length) return;
-	old_row.css("z-index",0).removeClass("active").fadeOut(600, "linear");
-	new_row.css("z-index",1).addClass("active").fadeIn();
+	//old_row.css("z-index",0).removeClass("active").fadeOut(600, "linear");
+	//new_row.css("z-index",1).addClass("active").fadeIn();
 	new_row.css("padding-top", (463-new_row.height())/2+"px");
+	old_row.removeClass("active");
+	new_row.addClass("active");
 	var url = new_row.find(".views-field-field-background-image img").attr("src");
 	setCarouselBG(url);
 	var color = new_row.find(".views-field-field-background-colour").text();
