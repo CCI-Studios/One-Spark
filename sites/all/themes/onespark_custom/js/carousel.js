@@ -1,15 +1,22 @@
+var carouselTimer;
+
 (function($) {
 	$(function(){
 		$(".view-carousel .views-row").each(function(i){
 			var background = $(this).find(".views-field-field-background-image img").attr("src");
 
-			$("<li><a href='#' onclick='setActive("+i+");return false;' class='star star-"+i+"'>&nbsp;</a></li>").appendTo("#carousel-stars");
+			$("<li><a href='#' onclick='setActive("+i+");stopCarousel();return false;' class='star star-"+i+"'>&nbsp;</a></li>").appendTo("#carousel-stars");
 		});
+
+		var row_first = $(".view-carousel .views-row-first");
+		row_first.css("padding-top", (463-row_first.height())/2+"px");
 
 		setActive(0);
 
 		$("#bg-arrows .next").click(nextCarouselSlide);
 		$("#bg-arrows .previous").click(previousCarouselSlide);
+
+		carouselTimer = setInterval(nextCarouselSlide, 5000);
 	});
 }(jQuery));
 
@@ -36,7 +43,6 @@ function setActive(index)
 	if (!new_row.length) return;
 	//old_row.css("z-index",0).removeClass("active").fadeOut(600, "linear");
 	//new_row.css("z-index",1).addClass("active").fadeIn();
-	new_row.css("padding-top", (463-new_row.height())/2+"px");
 	old_row.removeClass("active");
 	new_row.addClass("active");
 	var url = new_row.find(".views-field-field-background-image img").attr("src");
@@ -74,4 +80,9 @@ function previousCarouselSlide()
 	if (i < 0)
 		i = getNumOfSlides()-1;
 	setActive(i);
+}
+
+function stopCarousel()
+{
+	clearInterval(carouselTimer);
 }
