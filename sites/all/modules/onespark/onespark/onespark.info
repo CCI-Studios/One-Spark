@@ -32,6 +32,7 @@ features[node][] = carousel_item
 features[node][] = partners
 features[node][] = widget_item
 features[views_view][] = blog
+features[views_view][] = blogger
 features[views_view][] = carousel
 features[views_view][] = partners_and_supporters
 features[views_view][] = widget_block_1

@@ -44,12 +44,10 @@ function onespark_ds_layout_settings_info() {
   $ds_layout->settings = array(
     'regions' => array(
       'ds_content' => array(
-        0 => 'post_date',
-        1 => 'body',
+        0 => 'body',
       ),
     ),
     'fields' => array(
-      'post_date' => 'ds_content',
       'body' => 'ds_content',
     ),
     'classes' => array(),
