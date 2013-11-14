@@ -50,7 +50,7 @@ input[type=email]
 .purple-button
 {
 	display:inline-block;
-	padding:9px 10px 7px 10px;
+	padding:8px 10px 7px 10px;
 	text-align:center;
 	min-width:85px;
 	border-radius:4px;
@@ -64,6 +64,7 @@ input[type=email]
 	text-transform:lowercase;
 	font-family:"ff-basic-gothic-web-pro", "Century Gothic", sans-serif;
 	font-weight:100;
+	vertical-align:top;
 }
 .green-button.large,
 .purple-button.large
@@ -1069,6 +1070,46 @@ ul.primary li a
 {
 	color:$purple!important;
 }
+
+#sidebar
+{
+	float:right;
+	padding-top:40px;
+	padding-left:60px;
+	min-width:275px;
+
+	h2 
+	{
+		color:$lime;
+		font-size:18px;
+		font-weight:bold;
+		margin-bottom:20px;
+		padding-left:36px;
+		background:url(../images/star-widgets-heading.png) no-repeat left center;
+		text-transform:lowercase;
+	}
+	
+	#searchBox
+	{
+		width:166px;
+	}
+
+	a.toggle 
+	{
+		text-decoration:none!important;
+	}
+
+	.BlogArchive #ArchiveList ul ul
+	{
+		padding-left:20px;
+		li
+		{
+			padding-left:0!important;
+		}
+	}
+}
+
+
 
 
 
