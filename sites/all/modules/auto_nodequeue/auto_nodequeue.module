@@ -93,12 +93,20 @@ function auto_nodequeue_node_insert($node) {
 
     $queues = nodequeue_load_queues($qids);
     foreach ($queues as $queue) {
-      /**
-       * TODO: This needs rewriting to support any other type of queue. It assumes the "default" behavior, 1 queue/1 subqueue
-       */
-      $subqueues = nodequeue_load_subqueues_by_queue($queue->qid);
-      $subqueue = array_shift($subqueues);
-      nodequeue_subqueue_add($queue, $subqueue, $node->nid);
+      if ($queue->owner == 'smartqueue_taxonomy') {
+         if (module_exists('smartqueue')) {
+           $refs = smartqueue_taxonomy_nodequeue_subqueues($queue, $node);
+           $references = array($queue->qid => $refs);
+           $smartqueues = nodequeue_load_subqueues_by_reference($references);
+           foreach ($smartqueues as $smartqueue) {
+              nodequeue_subqueue_add($queue, $smartqueue, $node->nid);
+           }
+         }
+      } else {
+          $subqueues = nodequeue_load_subqueues_by_queue($queue->qid);
+          $subqueue = array_shift($subqueues);
+          nodequeue_subqueue_add($queue, $subqueue, $node->nid);
+      }
     }
   }
 }
