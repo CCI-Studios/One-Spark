@@ -127,7 +127,6 @@ textarea
 
 #navigation
 {
-	overflow:hidden;
 	position:relative;
 	z-index:10;
 	background:white;
@@ -241,21 +240,24 @@ textarea
 			padding:0;
 			position:relative;
 
-			&.first > a
+			&.first > a,
+			&.first > span.nolink
 			{
 				padding-left:0;
 			}
-			&.last > a
+			&.last > a,
+			&.last > span.nolink
 			{
 				padding-right:0;
 			}
 
-			& > a
+			& > a,
+			& > span.nolink
 			{
 				line-height:36px;
 				display:block;
 				padding:0 12px;
-				color:#4a2a75;
+				color:$purple;
 				font-size:16px;
 				font-weight:bold;
 				text-decoration:none;
@@ -300,6 +302,58 @@ textarea
 			&.last:hover:after
 			{
 				right:-11px;
+			}
+
+			& > ul
+			{
+				display: none;
+				position: absolute;
+				top: 100%;
+				width: 135px;
+				border-radius:4px;
+				overflow: hidden;
+				background:$lime;
+				box-shadow:0 3px 1px rgba(133,153,26, 0.5);
+
+				& > li
+				{
+					display: block;
+					padding: 0;
+					margin: 0;
+					border-bottom: 1px solid #8b9e25;
+					border-top: 1px solid #e3edad;
+
+					&.first
+					{
+						border-top: 0;
+					}
+					&.last
+					{
+						border-bottom: 0;
+					}
+
+					& > a,
+					& > span.nolink
+					{
+						color:$purple;
+						text-decoration: none;
+						display: block;
+						text-transform: lowercase;
+						font-weight: bold;
+						padding:10px 5px;
+						text-align: center;
+
+						&:hover
+						{
+							color:white;
+							background:$purple url(../images/star-submenu.png) no-repeat center bottom;
+						}
+					}
+				}
+			}
+			&:hover > ul
+			{
+				display: block;
 			}
 		}
 	}
@@ -1318,7 +1372,7 @@ form#commerce-checkout-form-checkout
 			padding-bottom:10px;
 		}
 
-		.content > div > ul li
+		.content > div > ul > li
 		{
 			display:block;
 			float:none;
@@ -1331,7 +1385,8 @@ form#commerce-checkout-form-checkout
 				display:block;
 			}
 
-			a
+			& > a,
+			& > span.nolink
 			{
 				line-height:50px;
 				border-top:1px solid #e3edad;
@@ -1349,6 +1404,34 @@ form#commerce-checkout-form-checkout
 				top:50%;
 				margin-top:-4px;
 				z-index:0;
+			}
+
+			& > ul
+			{
+				display: block;
+				position: static;
+				width: auto;
+				box-shadow:none;
+
+				& > li
+				{
+					border-top:1px solid #8b9e25!important;
+					border-bottom: 0;
+
+					& > a,
+					& > span.nolink
+					{
+						border-top:1px solid #e3edad;
+						text-align: left;
+						padding-left:24px;
+
+						&:hover
+						{
+							background:none;
+							color:$purple;
+						}
+					}
+				}
 			}
 		}
 	}
