@@ -48,6 +48,7 @@
 <head>
   <?php print $head; ?>
   <meta name="viewport" content="width=device-width" id="meta-viewport" />
+  <meta name="description" content="One Spark's vision is a world where no woman faces financial barriers to living a life free of violence.">
   <title><?php print $head_title_array['name']; ?></title>
   <?php print $styles; ?>
   <script type="text/javascript" src="//use.typekit.net/wvs3bkk.js"></script>
